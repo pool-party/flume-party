@@ -16,7 +16,7 @@ interface Command : Interaction {
     val description: String
 
     /**
-     * Command help message that will be displayed on command /help <command>
+     * Command help message that will be displayed on command /help <command>.
      */
     val helpMessage: String
 

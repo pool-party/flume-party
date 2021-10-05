@@ -37,17 +37,13 @@ class BotBuilder(private val configuration: AbstractConfiguration) {
 
     private fun Bot.initHandlers(interactions: List<List<Interaction>>) {
 
-        val mutableInteractions = interactions.asSequence().flatMap { it }.toMutableList()
-        mutableInteractions += EveryMessageProcessor(everyMessageInteractions)
+        val mutableInteractions =
+            (interactions + listOf(listOf(EveryMessageProcessor(everyMessageInteractions)))).toMutableList()
 
-        val commandGroups = interactions.asSequence()
-            .map { commandGroup -> commandGroup.mapNotNull { it as? Command } }
-            .filter { it.isNotEmpty() }
-            .toList()
-        val helpCommand = HelpCommand(commandGroups)
-        mutableInteractions.add(helpCommand)
+        val helpCommand = HelpCommand(mutableInteractions)
+        mutableInteractions += listOf(listOf(helpCommand))
 
-        mutableInteractions.forEach { it.apply(this) }
+        mutableInteractions.asSequence().flatMap { it }.forEach { it.apply(this) }
         setMyCommands(mutableInteractions.mapNotNull { it as? Command }.map { it.toBotCommand() })
     }
 }

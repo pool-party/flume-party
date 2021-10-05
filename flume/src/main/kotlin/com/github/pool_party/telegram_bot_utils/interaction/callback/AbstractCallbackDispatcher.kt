@@ -9,6 +9,8 @@ abstract class AbstractCallbackDispatcher<T : Any>(callbacks: List<Callback<T>>)
 
     private val logger = KotlinLogging.logger {}
 
+    override val usages = listOf<String>()
+
     private val callbackMap: Map<KClass<out Any>, Callback<T>> = callbacks.associateBy { it.callbackDataKClass }
 
     abstract fun getCallbackData(data: String): T?

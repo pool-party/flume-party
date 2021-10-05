@@ -10,11 +10,28 @@ abstract class AbstractCommand(
     commandName: String,
     override val description: String,
     override val helpMessage: String,
+    usageList: List<List<String>>,
 ) : Command {
 
-    private val logger = KotlinLogging.logger {}
+    init {
+        check(usageList.isNotEmpty())
+        check(usageList.all { it.isNotEmpty() })
+        check(usageList.size == usageList.asSequence().map { it.size }.distinct().count())
+    }
+
+    constructor(commandName: String, description: String, helpMessage: String, vararg usages: List<String>) :
+        this(commandName, description, helpMessage, usages.toList())
+
+    constructor(commandName: String, description: String, helpMessage: String) :
+        this(commandName, description, helpMessage, listOf(listOf(description)))
 
     override val command = "/$commandName"
+
+    override val usages = usageList.map {
+        "$command ${it.dropLast(1).joinToString(" ") { arg -> "<${arg}\\>" }} - ${it.last()}"
+    }
+
+    private val logger = KotlinLogging.logger {}
 
     abstract suspend fun Bot.action(message: Message, args: List<String>)
 
