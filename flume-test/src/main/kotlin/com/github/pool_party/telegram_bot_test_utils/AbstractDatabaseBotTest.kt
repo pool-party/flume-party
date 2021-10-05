@@ -1,19 +1,13 @@
 package com.github.pool_party.telegram_bot_test_utils
 
-import com.github.pool_party.telegram_bot_utils.interaction.callback.AbstractCallbackDispatcher
-import com.github.pool_party.telegram_bot_utils.interaction.command.Command
-import com.github.pool_party.telegram_bot_utils.interaction.message.EveryMessageInteraction
+import com.github.pool_party.telegram_bot_utils.bot.BotBuilder
 import org.flywaydb.core.Flyway
 import org.jetbrains.exposed.sql.Database
 import org.junit.jupiter.api.BeforeAll
 import org.testcontainers.containers.PostgreSQLContainer
 import org.testcontainers.junit.jupiter.Container
 
-abstract class AbstractDatabaseBotTest<T : Any>(
-    commands: List<Command>,
-    abstractCallbackDispatcher: AbstractCallbackDispatcher<T>,
-    everyMessageInteractions: List<EveryMessageInteraction>,
-) : AbstractBotTest<T>(commands, abstractCallbackDispatcher, everyMessageInteractions) {
+abstract class AbstractDatabaseBotTest(botBuilder: BotBuilder) : AbstractBotTest(botBuilder) {
 
     /**
      * Should call `.deleteAll()` on all Exposed database DAOs.

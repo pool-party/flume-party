@@ -6,9 +6,9 @@ import com.elbekD.bot.types.Chat
 import com.elbekD.bot.types.ChatMember
 import com.elbekD.bot.types.Message
 import com.elbekD.bot.types.User
+import com.github.pool_party.telegram_bot_utils.bot.BotBuilder
 import com.github.pool_party.telegram_bot_utils.interaction.callback.AbstractCallbackDispatcher
 import com.github.pool_party.telegram_bot_utils.interaction.command.Command
-import com.github.pool_party.telegram_bot_utils.interaction.message.EveryMessageInteraction
 import com.github.pool_party.telegram_bot_utils.interaction.message.EveryMessageProcessor
 import io.mockk.MockKAnnotations
 import io.mockk.coVerify
@@ -20,11 +20,7 @@ import kotlinx.coroutines.runBlocking
 import java.util.concurrent.CompletableFuture
 import kotlin.test.BeforeTest
 
-abstract class AbstractBotTest<T : Any>(
-    private val commands: List<Command>,
-    private val abstractCallbackDispatcher: AbstractCallbackDispatcher<T>,
-    everyMessageInteractions: List<EveryMessageInteraction>,
-) {
+abstract class AbstractBotTest(botBuilder: BotBuilder) {
 
     @MockK
     protected lateinit var bot: Bot
@@ -111,7 +107,14 @@ abstract class AbstractBotTest<T : Any>(
         null
     )
 
-    private val everyMessageProcessor = EveryMessageProcessor(everyMessageInteractions)
+    private val everyMessageProcessor = EveryMessageProcessor(botBuilder.everyMessageInteractions)
+
+    private val abstractCallbackDispatcher = botBuilder.interactions
+        .asSequence()
+        .flatMap { it }
+        .firstNotNullOfOrNull { it as? AbstractCallbackDispatcher<*> }
+
+    private val commands = botBuilder.interactions.asSequence().flatMap { it }.mapNotNull { it as? Command }.toList()
 
     private lateinit var everyMessageAction: suspend (Message) -> Unit
 
@@ -135,7 +138,7 @@ abstract class AbstractBotTest<T : Any>(
 
         commands.forEach { it.apply(bot) }
         everyMessageProcessor.apply(bot)
-        abstractCallbackDispatcher.apply(bot)
+        abstractCallbackDispatcher?.apply(bot)
     }
 
     // bot interaction test DSL
