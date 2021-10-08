@@ -1,7 +1,7 @@
-package com.github.pool_party.telegram_bot_utils.interaction.callback
+package com.github.pool_party.flume.interaction.callback
 
 import com.elbekD.bot.Bot
-import com.github.pool_party.telegram_bot_utils.interaction.Interaction
+import com.github.pool_party.flume.interaction.Interaction
 import mu.KotlinLogging
 import kotlin.reflect.KClass
 

@@ -1,4 +1,4 @@
-package com.github.pool_party.telegram_bot_utils.configuration
+package com.github.pool_party.flume.configuration
 
 import com.natpryce.konfig.*
 import kotlin.reflect.KProperty

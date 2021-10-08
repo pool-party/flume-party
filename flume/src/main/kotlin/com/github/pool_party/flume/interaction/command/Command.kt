@@ -1,7 +1,7 @@
-package com.github.pool_party.telegram_bot_utils.interaction.command
+package com.github.pool_party.flume.interaction.command
 
 import com.elbekD.bot.types.BotCommand
-import com.github.pool_party.telegram_bot_utils.interaction.Interaction
+import com.github.pool_party.flume.interaction.Interaction
 
 interface Command : Interaction {
 

@@ -1,7 +1,7 @@
-package com.github.pool_party.telegram_bot_utils.interaction.message
+package com.github.pool_party.flume.interaction.message
 
 import com.elbekD.bot.Bot
-import com.github.pool_party.telegram_bot_utils.interaction.Interaction
+import com.github.pool_party.flume.interaction.Interaction
 
 class EveryMessageProcessor(private val interactions: List<EveryMessageInteraction>) : Interaction {
 

@@ -1,4 +1,4 @@
-package com.github.pool_party.telegram_bot_utils.utils
+package com.github.pool_party.flume.utils
 
 import com.elbekD.bot.Bot
 import com.elbekD.bot.types.InlineKeyboardMarkup
@@ -17,7 +17,11 @@ fun <T> CompletableFuture<T>.logging(prefix: String = ""): CompletableFuture<T> 
     value
 }
 
-private fun String.escapeMarkdown() = replace("[-!.]".toRegex()) { "\\${it.groupValues[0]}" }
+private fun String.escape(symbols: String) = replace("[$symbols]".toRegex()) { "\\${it.groupValues[0]}" }
+
+private fun String.escapeMarkdown() = escape("-!.")
+
+fun String.unformatted() = escape("()_*")
 
 fun Bot.sendMessageLogging(
     chatId: Long,

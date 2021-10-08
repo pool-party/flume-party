@@ -1,4 +1,4 @@
-package com.github.pool_party.telegram_bot_utils.interaction
+package com.github.pool_party.flume.interaction
 
 import com.elbekD.bot.Bot
 

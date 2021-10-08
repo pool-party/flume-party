@@ -1,4 +1,4 @@
-package com.github.pool_party.telegram_bot_utils.message
+package com.github.pool_party.flume.message
 
 val ON_PERMISSION_DENY =
     """

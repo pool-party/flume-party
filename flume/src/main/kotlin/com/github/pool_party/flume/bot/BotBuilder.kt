@@ -1,13 +1,13 @@
-package com.github.pool_party.telegram_bot_utils.bot
+package com.github.pool_party.flume.bot
 
 import com.elbekD.bot.Bot
 import com.elbekD.bot.server
-import com.github.pool_party.telegram_bot_utils.configuration.AbstractConfiguration
-import com.github.pool_party.telegram_bot_utils.interaction.Interaction
-import com.github.pool_party.telegram_bot_utils.interaction.command.Command
-import com.github.pool_party.telegram_bot_utils.interaction.command.HelpCommand
-import com.github.pool_party.telegram_bot_utils.interaction.message.EveryMessageInteraction
-import com.github.pool_party.telegram_bot_utils.interaction.message.EveryMessageProcessor
+import com.github.pool_party.flume.configuration.AbstractConfiguration
+import com.github.pool_party.flume.interaction.Interaction
+import com.github.pool_party.flume.interaction.command.Command
+import com.github.pool_party.flume.interaction.command.HelpCommand
+import com.github.pool_party.flume.interaction.message.EveryMessageInteraction
+import com.github.pool_party.flume.interaction.message.EveryMessageProcessor
 
 class BotBuilder(private val configuration: AbstractConfiguration) {
 

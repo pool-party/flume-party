@@ -1,4 +1,4 @@
-package com.github.pool_party.telegram_bot_utils.utils
+package com.github.pool_party.flume.utils
 
 import com.elbekD.bot.Bot
 import com.elbekD.bot.types.*

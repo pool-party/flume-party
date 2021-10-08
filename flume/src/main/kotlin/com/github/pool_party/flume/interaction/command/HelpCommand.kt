@@ -1,12 +1,12 @@
-package com.github.pool_party.telegram_bot_utils.interaction.command
+package com.github.pool_party.flume.interaction.command
 
 import com.elbekD.bot.Bot
 import com.elbekD.bot.types.Message
-import com.github.pool_party.telegram_bot_utils.interaction.Interaction
-import com.github.pool_party.telegram_bot_utils.message.ON_HELP_ERROR
-import com.github.pool_party.telegram_bot_utils.message.helpMessage
-import com.github.pool_party.telegram_bot_utils.utils.chatId
-import com.github.pool_party.telegram_bot_utils.utils.sendMessageLogging
+import com.github.pool_party.flume.interaction.Interaction
+import com.github.pool_party.flume.message.ON_HELP_ERROR
+import com.github.pool_party.flume.message.helpMessage
+import com.github.pool_party.flume.utils.chatId
+import com.github.pool_party.flume.utils.sendMessageLogging
 
 internal class HelpCommand(interactions: List<List<Interaction>>) :
     AbstractCommand(

@@ -1,4 +1,4 @@
-package com.github.pool_party.telegram_bot_test_utils
+package com.github.pool_party.flume
 
 import com.elbekD.bot.Bot
 import com.elbekD.bot.types.CallbackQuery
@@ -6,10 +6,10 @@ import com.elbekD.bot.types.Chat
 import com.elbekD.bot.types.ChatMember
 import com.elbekD.bot.types.Message
 import com.elbekD.bot.types.User
-import com.github.pool_party.telegram_bot_utils.bot.BotBuilder
-import com.github.pool_party.telegram_bot_utils.interaction.callback.AbstractCallbackDispatcher
-import com.github.pool_party.telegram_bot_utils.interaction.command.Command
-import com.github.pool_party.telegram_bot_utils.interaction.message.EveryMessageProcessor
+import com.github.pool_party.flume.bot.BotBuilder
+import com.github.pool_party.flume.interaction.callback.AbstractCallbackDispatcher
+import com.github.pool_party.flume.interaction.command.Command
+import com.github.pool_party.flume.interaction.message.EveryMessageProcessor
 import io.mockk.MockKAnnotations
 import io.mockk.coVerify
 import io.mockk.every

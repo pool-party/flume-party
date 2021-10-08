@@ -1,11 +1,11 @@
-package com.github.pool_party.telegram_bot_utils.interaction.command
+package com.github.pool_party.flume.interaction.command
 
 import com.elbekD.bot.Bot
 import com.elbekD.bot.types.Message
-import com.github.pool_party.telegram_bot_utils.message.ON_PERMISSION_DENY
-import com.github.pool_party.telegram_bot_utils.utils.chatId
-import com.github.pool_party.telegram_bot_utils.utils.sendMessageLogging
-import com.github.pool_party.telegram_bot_utils.utils.validateAdministrator
+import com.github.pool_party.flume.message.ON_PERMISSION_DENY
+import com.github.pool_party.flume.utils.chatId
+import com.github.pool_party.flume.utils.sendMessageLogging
+import com.github.pool_party.flume.utils.validateAdministrator
 
 abstract class AdministratorCommand(
     command: String,

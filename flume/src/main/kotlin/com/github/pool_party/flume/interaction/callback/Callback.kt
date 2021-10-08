@@ -1,4 +1,4 @@
-package com.github.pool_party.telegram_bot_utils.interaction.callback
+package com.github.pool_party.flume.interaction.callback
 
 import com.elbekD.bot.Bot
 import com.elbekD.bot.types.CallbackQuery
